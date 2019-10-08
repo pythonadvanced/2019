@@ -32,7 +32,7 @@ from fractions import Fraction
 
 ### approfondissement sur les containers : dictionnaires / ensembles  
 
-* slides sur les containers (45 slides)
+* slides sur les containers (45 slides)  
   <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/short-02-3-containers>
 
 * exo: calculette postfix  

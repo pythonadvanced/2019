@@ -9,14 +9,14 @@ from nbhosting.courses import (
 def tracks(coursedir):
     return [
         Track(coursedir,
-              name="python avancé",
+              name="advanced",
               sections=[
-                Section(name="cours 1",
+                Section(name="cours 1/9",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours1*")),
-                Section(name="cours 2",
+                Section(name="cours 2/9",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours2*")),
                 ],
-              description="le serpent en pygame"),
+              description="le cours de Python avancé"),
         ]
