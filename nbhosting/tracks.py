@@ -13,10 +13,10 @@ def tracks(coursedir):
               sections=[
                 Section(name="cours 1/9",
                         coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"cours1*")),
+                        notebooks=notebooks_by_pattern(coursedir,"cours1*.ipynb")),
                 Section(name="cours 2/9",
                         coursedir=coursedir,
-                        notebooks=notebooks_by_pattern(coursedir,"cours2*")),
+                        notebooks=notebooks_by_pattern(coursedir,"cours2*.ipynb")),
                 ],
               description="le cours de Python avancé"),
         ]
