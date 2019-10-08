@@ -19,13 +19,10 @@ from fractions import Fraction
 
 ***
 
-### les types "chaine"  
+### le type "fichier"  
 
-* slides sur `str` / notions d'encodage  
-  <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/02-2-str-bytes>  
-  
-* slides sur les types "fichier"  
-  <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/02-4-files>  
+* slides sur le type "fichier" (19 slides)  
+  <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/short-02-4-files>  
 
 * exo sur les fichiers et chaines  
   <https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w3/w3-s2-x1-comptage>
@@ -35,24 +32,30 @@ from fractions import Fraction
 
 ### approfondissement sur les containers : dictionnaires / ensembles  
 
-* slides sur les containers 
-  https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/02-3-containers
+* slides sur les containers (45 slides)
+  <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/short-02-3-containers>
 
 * exo: calculette postfix  
-  https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w6/w6-s9-x1-exos-en-vrac  
+  <https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w6/w6-s9-x1-exos-en-vrac>  
   chercher l'exercice intitulé *"évaluateur d'expression postfix (6 kyu)"*
 
 * TP: pagerank sur l'usage des dictionnaires  
-  https://nbhosting.inria.fr/auditor/notebook/python-slides:%C3%A9chantillons/samples/12-thrones
+  <https://nbhosting.inria.fr/auditor/notebook/python-slides:%C3%A9chantillons/samples/12-thrones>  
 
 ***
+
+### option : chaines
+
+* slides sur `str` / notions d'encodage (40 slides y compris rappels)  
+  <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/short-02-2-str-bytes>  
+ 
 
 ### option : expressions régulières
     
 notebook: les expressions régulières  
-https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w2/w2-s2-c4-expressions-regulieres
+<https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w2/w2-s2-c4-expressions-regulieres>
 
 exos: expressions régulieres  
-https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w2/w2-s2-x1-expressions-regulieres
+<https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w2/w2-s2-x1-expressions-regulieres>
 
 ***
