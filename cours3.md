@@ -36,13 +36,13 @@ xxx solution à relire et à publier dans solutions/
 les 1001 façons d'itérer en Python :  
 la boucle `for`, compréhensions, expressions génératrices, générateurs, itérateurs de la librairie standard
 
-* slides : (xxx peut-être une version abrégée si nécessaire)  
+* slides : (xxx peut-être une version abrégée si nécessaire, je ne crois pas a priori)  
 <https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/03-3-iterations>
 
 * exos :
 
   * le code vigenere : <https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w5/w5-s3-x2-vigenere>
-  * xxx
+  * calcul des impôts : <https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w4/w4-s3-x2-taxes>
 
 ***
 ## rappel - solutions
