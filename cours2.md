@@ -52,10 +52,16 @@ from fractions import Fraction
 
 ### option : expressions régulières
     
-notebook: les expressions régulières  
+* slides: les expressions régulières  
+<https://nbhosting.inria.fr/auditor/notebook/python-slides/slides/02-6-regexps>
+
+* exos: expressions régulieres  
+<https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w2/w2-s2-x1-expressions-regulieres>
+
+* notebook : les expressions régulières (pour approfondir)  
 <https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w2/w2-s2-c4-expressions-regulieres>
 
-exos: expressions régulieres  
-<https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w2/w2-s2-x1-expressions-regulieres>
+
+
 
 ***
