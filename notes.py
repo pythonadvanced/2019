@@ -50,14 +50,14 @@
 
 # %%
 from typing import List, Dict, Iterator, Callable
-from itertools import product
+import itertools
 
 
 Line = Dict
 Table = Iterator[Line]
 
 
-def projection(table: Table, colonnes: List[str]) -> Iterator[Line]:
+def select(table: Table, colonnes: List[str]) -> Iterator[Line]:
     for line in table:
         projected_line = {}
         for colonne in colonnes:
@@ -65,12 +65,12 @@ def projection(table: Table, colonnes: List[str]) -> Iterator[Line]:
         yield projected_line
 
 
-def cartesian_product(tableA: Table, tableB: Table) -> Iterator[Line]:
-    for lineA, lineB in product(tableA, tableB):
+def product(tableA: Table, tableB: Table) -> Iterator[Line]:
+    for lineA, lineB in itertools.product(tableA, tableB):
         yield {**lineA, **lineB}
 
 
-def filter(table: Table, function: Callable(Line)) -> Iterator[Line]:
+def filter(table: Table, function: Callable[[Line], bool]) -> Iterator[Line]:
     for line in table:
         if function(line):
             yield line
@@ -82,9 +82,9 @@ def join(tableA: Table, colA: str, tableB: Table, colB: str):
 
 # %%
 t1 = [{'nom': 'Dupont', 'prenom': 'Jean', 'person_id': 1}, {'nom': 'Durand', 'prenom': 'Jeanne', 'person_id': 2}]
-t2 = [{'nom2': 'Dupont', 'prenom2': 'Jean', 'person2_id': 1}, {'nom2': 'Durand', 'prenom2': 'Jeanne', 'person2_id': 2}]
+t2 = [{'nom2': 'Smith', 'prenom2': 'John', 'person2_id': 1}, {'nom2': 'Durand', 'prenom2': 'Jeanne', 'person2_id': 2}]
 
-for flat in produit_cartesien(t1, t2):
+for flat in select(product(t1, t2), ['nom', 'nom2']):
     print(flat)
 
 
