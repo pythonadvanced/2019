@@ -17,6 +17,24 @@
 # ---
 
 # %% [markdown]
+# ***NOTE***
+#
+# ce notebook est le premier de ceux qui utilisent un **workflow basé sur jupytext**
+#
+# en pratique ça signifie que
+# * dans mon repo de travail je sauve automatiquement un `.ipynb` **ET** un `.py` 
+# * je ne mets **sous git QUE le `.py`** 
+#
+# mon objectif est de vérifier que nbhosting fonctionne correctement avec de tels notebooks
+#
+# les avantages :
+# * `git diff` plus facile (pas besoin de nbdime en fait)
+# * `git commit` plus facile (pas besoin de nbstripout non plus)
+# * `git pull` plus facile (jupytext est configuré pour **ne pas sauver certains détails** comme notamment le niveau de version de Python qui n'arrête pas de changer entre moi et les différentes images sur nbhosting)
+#
+# à suivre sur la durée donc
+
+# %% [markdown]
 # # idées de TP pour la suite
 
 # %% [markdown]
@@ -29,6 +47,46 @@
 # * une table = une liste de dictionnaires
 # * sujet = modéliser les requêtes SQL (join, WHERE, ...) sous forme de fonctions Python
 # * sans doute améliorable en utilisant des itérateurs et générateurs pour les diverses opérations de combinaison
+
+# %%
+from typing import List, Dict, Iterator, Callable
+from itertools import product
+
+
+Line = Dict
+Table = Iterator[Line]
+
+
+def projection(table: Table, colonnes: List[str]) -> Iterator[Line]:
+    for line in table:
+        projected_line = {}
+        for colonne in colonnes:
+            projected_line[colonne] = line[colonne]
+        yield projected_line
+
+
+def cartesian_product(tableA: Table, tableB: Table) -> Iterator[Line]:
+    for lineA, lineB in product(tableA, tableB):
+        yield {**lineA, **lineB}
+
+
+def filter(table: Table, function: Callable(Line)) -> Iterator[Line]:
+    for line in table:
+        if function(line):
+            yield line
+
+
+def join(tableA: Table, colA: str, tableB: Table, colB: str):
+    return filter(product(tableA, tableB), lambda line: line[colA] == line[colB])
+
+
+# %%
+t1 = [{'nom': 'Dupont', 'prenom': 'Jean', 'person_id': 1}, {'nom': 'Durand', 'prenom': 'Jeanne', 'person_id': 2}]
+t2 = [{'nom2': 'Dupont', 'prenom2': 'Jean', 'person2_id': 1}, {'nom2': 'Durand', 'prenom2': 'Jeanne', 'person2_id': 2}]
+
+for flat in produit_cartesien(t1, t2):
+    print(flat)
+
 
 # %% [markdown] {"slideshow": {"slide_type": ""}}
 # ## calculette infixe
