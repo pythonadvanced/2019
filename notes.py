@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # ---
 # jupyter:
+#   celltoolbar: Slideshow
 #   jupytext:
 #     cell_metadata_filter: all
 #     notebook_metadata_filter: all,-language_info
@@ -19,16 +20,26 @@
 # # idées de TP pour la suite
 
 # %% [markdown]
-# ## bdd
+# ## bases de données
 #
 # vu dans les notebooks de Laurent Signac à ENSIP/Poitiers
 # <https://nbhosting.inria.fr/auditor/notebook/ensip:generic/diueil/1_2_2_Traitement_donnees_table-sujet>
 #
 # * exo sur une simulation de bdd en mémoire
 # * une table = une liste de dictionnaires
+# * sujet = modéliser les requêtes SQL (join, WHERE, ...) sous forme de fonctions Python
 # * sans doute améliorable en utilisant des itérateurs et générateurs pour les diverses opérations de combinaison
 
-# %% [markdown] {"slideshow": {"slide_type": "slide"}}
+# %% [markdown] {"slideshow": {"slide_type": ""}}
 # ## calculette infixe
 #
 # idée proposée par Aurélien Noce
+
+# %% [markdown]
+# ## distance dans les ADN
+#
+# * leur faire implémenter l'algorithme de Needleman and Wunsch
+#
+# https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm
+#
+# bon je trouve que la page wikipedia a tendance à présenter les choses sous une forme plus compliquée que nécessaire
