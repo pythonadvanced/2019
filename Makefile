@@ -1,4 +1,4 @@
-all: strip md
+all: strip
 
 NOTEBOOKS := $(shell git ls-files *.ipynb)
 MDS = $(subst .ipynb,.md,$(NOTEBOOKS))
