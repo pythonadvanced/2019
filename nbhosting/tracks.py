@@ -29,6 +29,9 @@ def tracks(coursedir):
                 Section(name="cours 6/9",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours6.ipynb")),
+                Section(name="cours 7/9",
+                        coursedir=coursedir,
+                        notebooks=notebooks_by_pattern(coursedir,"cours7.ipynb")),
                 ],
               description="le cours de Python avancé"),
         ]
