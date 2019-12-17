@@ -1,3 +1,21 @@
+---
+jupyter:
+  jupytext:
+    cell_metadata_filter: all
+    notebook_metadata_filter: all,-language_info
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.1'
+      jupytext_version: 1.2.4
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  notebookname: "\xE9valuation"
+  version: '1.0'
+---
+
 # Évaluation cours Python avancé 
 
 
@@ -261,7 +279,7 @@ sera encodée par
 on vous demande d'écrire dans un répertoire `huffman` un module `codec.py` que l'on peut utiliser de la façon suivante :
 
 
-
+<!-- #region {"lines_to_next_cell": 2, "trusted": true} -->
 ```python
 from codec import TreeBuilder, Codec
 
@@ -287,7 +305,7 @@ print(f"{text}\n{encoded}")
 if decoded != text:
     print("OOPS")
 ```
-
+<!-- #endregion -->
 
 
 qui doit alors produire comme sortie
