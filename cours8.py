@@ -36,8 +36,8 @@
 # %% [markdown]
 # ## énoncé de l'évaluation du cours
 #
-# l'énoncé de l'évaluation se trouve ici
-# http://localhost:54114/notebooks/git/pythonadvanced-2019/sujet-evaluation.md
+# l'énoncé de l'évaluation se trouve ici  
+# <https://nbhosting.inria.fr/auditor/notebook/mines-python-advanced:advanced/sujet-evaluation.md>
 #
 # **objectifs** :
 # que tout le monde ait parfaitement compris ce qui est demandé
