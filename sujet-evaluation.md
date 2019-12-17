@@ -5,19 +5,30 @@
 
 Le barême pour ce devoir est délibérément conçu pour vous inciter à faire **très attention à la forme** autant qu'au fond; ainsi les points obtenus se répartissent de la façon suivante :
 
+* 50% seulement de la note sur **le fait que "ça marche"**, c'est-à-dire que les résultats obtenus correspondent bien à ce qui est demandé ;
+
 * 20% de la note sur **la lisibilité du code**; vous êtes notamment invités à 
   * suivre les recommandations de la PEP008 (cf. [le cours sur nbhosting](https://nbhosting.inria.fr/auditor/notebook/python-slides:slides/slides/03-4-pep008)) notamment en ce qui concerne la **place des espaces**, et la **largeur des pages** (ne pas dépasser 100 caractères de large)
   * écrire des *doctrings* pour les classes et méthodes importantes ;
   * insérer ni trop, ni trop peu de commentaires ;
   * utiliser les *type hints* pour préciser le type des arguments lorsque vous pensez que ça peut clarifier l'usage du code que vous écrivez ;
 
-* 50% de la note sur **le fait que "ça marche"**, c'est-à-dire que les résultats obtenus correspondent bien à ce qui est demandé ;
+* 20% de la note pour la **simplicité** et la **concision** du code : plus votre code est simple et concis, plus il est facile à lire et à comprendre, et plus il sera facilement modifiable dans le futur ; n'hésitez pas à enlever les étapes inutiles, ou à récrire un morceau qui utilise une approche infructueuse ;
 
-* 10% de la note pour la **simplicité** et la **concision** du code : plus votre code est simple et concis, plus il est facile à lire et à comprendre, et plus il sera facilement modifiable dans le futur ; n'hésitez pas à enlever les étapes inutiles, ou à récrire un morceau qui utilise une approche infructueuse ;
-
-* 10% de la note sur **le respect des consignes** en ce qui concerne les noms de fichier, de classes, et de méthodes, dont le non-respect ralentit la correction.
+* 10% de la note sur **le respect des consignes** en ce qui concerne les noms de fichier, de classes, et de méthodes, du repo git, etc… dont le non-respect ralentit la correction.
 
 On recommande évidemment de lire l'énoncé jusqu'au bout avant de se lancer.
+
+
+## Mode d'emploi
+
+* **description des algorithmes** les deux algorithmes qu'on vous demande d'implémenter sont très classiques; **ne cherchez pas dans l'énoncé** une description détaillée de leur fonctionnement, cela fait partie du devoir que d'aller sur toutes les sources que vous jugez utiles pour trouver des descriptions plus fines de leur fonctionnement ;
+
+* **date limite** la date limite est fixée au **27 Janvier 2020 à minuit**; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
+
+* **modalités de rendu** les copies seront **ramassées sur github.com**; on vous recommande de travailler sous git localement, et de **pousser** votre repo local **sur github.com pendant le week-end** suivant la deadline, pour éviter d'exposer votre travail trop tôt; chacun créera sur github un repo qui s'appelle `python-eval`; la correction se basera sur le dernier commit avant la *deadline* ;
+
+* **révisions** en cas de typo, d'erreur ou d'imprécision trouvée dans l'énoncé, une mise à jour sera publiée sur nbhosting et une annonce sera faite sur discourse.
 
 
 ***
@@ -31,8 +42,15 @@ Cet algorithme ([page wikipedia](https://fr.wikipedia.org/wiki/Algorithme_de_Nee
 a été inventé pour formaliser la notion de *distance* entre deux brins d'ADN, 
 cette distance étant exprimée en nombre de substitutions/insertions/effacements d'un caractère.
 
-Voici les résultats de cet algorithme obtenus sur quelques exemples :
+Il est important de souligner à ce stade que la page **wikipedia** fait référence à une notion d'**alignement**, alors que **dans cet énoncé** nous parlons de **distance**; il s'agit de la même notion, mais vue de deux points de vue différents; pour faire court, l'alignement est un peu l'opposé de la distance, en ce sens que l'alignement est grand c'est que la distance est faible.
 
+
+
+Voici les résultats attendus de cet algorithme sur quelques exemples :
+
+
+NB. Les signes <span style="color:red; background-color:#ccc">=</span> sont ajoutés par l'algorithme pour permettre une comparaison visuelle des deux chaines;  
+Dit autrement, le premier exemple compare les chaines `"abcdefghi"` et `"abcdfghi"`
 
 <code>
 <pre>
@@ -61,15 +79,13 @@ ACCTGC<span style="color:red; background-color:#ccc">G</span>AACAG<span style="c
 </code>
 
 
-Vous remarquerez que dans les descriptions les plus générales de cet algorithme, et notamment dans la page wikipedia référencée ci-dessus :
-
-* on parle de mesurer un alignement, qui est une grandeur opposée à la distance (si l'alignement est grand c'est que la distance est faible)
-
-* il est fait mention d'un modèle général défini avec une matrice de similarité $S$, et une constante $d$;
-  dans nos exemples, et dans le code que vous écrirez, on a choisi un modèle simplifié de distance, où 
+Notre modèle un peu simplifié de distance consiste donc à compter le nombre minimum d'opérations élémentaires (insertion d'une lettre, destruction d'une lettre, remplacement d'une lettre) qui permet de passer d'une chaine à l'autre :
   * le remplacement d'une lettre par une autre différente "*coûte*" 1
   * une insertion/effacement "*coûte*" 1 également  
-  notre simplification, par exemple dans le cas des brins d'ADN ou l'alphabet correspond aux nucléotides {A, C, G, T}, consisterait ainsi à prendre pour ces deux valeurs :
+
+Vous remarquerez que dans la version décrite dans wikipedia, on se place dans un modèle plus général; au lieu d'appliquer un coût forfaitaire comme nous le faisons ici, on introduit une matrice qui permet de donner un coût spécifique et individualisé; ainsi le remplacement de 'A' par 'T' peut être compabilisé différemment d'un remplacement de 'A' par 'C', etc… 
+
+Notre simplification, par exemple dans le cas des brins d'ADN ou l'alphabet correspond aux nucléotides {A, C, G, T}, consisterait ainsi à prendre pour ces deux valeurs (toujours avec les notations de wikipedia) :
 
   $d = 1$ et 
   $S = \begin{pmatrix}
@@ -80,7 +96,7 @@ Vous remarquerez que dans les descriptions les plus générales de cet algorithm
   \end{pmatrix}
   $
   
-  (ou bien, donc, leurs opposées, selon qu'on estime une distance ou un alignement)
+(ou bien, donc, leurs opposées, selon qu'on estime une distance ou un alignement)
 
 <!-- #region -->
 ### Ce qui est demandé (1)
@@ -146,13 +162,13 @@ pour afficher
 <pre>
 ====== example # 1 - distance = 1
 abcdefghi
-abcd<span style="color:red; background-color:#ccc">=</span>fghi
+abcd<span style="color:red; ">=</span>fghi
 ====== example # 2 - distance = 2
-abcd<span style="color:red; background-color:#ccc">e</span><span style="color:red; background-color:#ccc">f</span>
-abcd<span style="color:red; background-color:#ccc">f</span><span style="color:red; background-color:#ccc">g</span>
+abcd<span style="color:red; ">e</span><span style="color:red; ">f</span>
+abcd<span style="color:red; ">f</span><span style="color:red; ">g</span>
 ====== example # 3 - distance = 1
-AC<span style="color:red; background-color:#ccc">G</span>T
-AC<span style="color:red; background-color:#ccc">C</span>T
+AC<span style="color:red; ">G</span>T
+AC<span style="color:red; ">C</span>T
 </pre>
 </code>
 <!-- #endregion -->
@@ -167,7 +183,7 @@ AC<span style="color:red; background-color:#ccc">C</span>T
 
 ##### Dimensionnement
 * on envisage d'utiliser l'algorithme avec en entrée des chaines d'une taille jusqu'à 3 000 caractères
-* il est souhaitable que la comparaison de deux chaines toutes deux de taille 1000 se fasse dans un délai de l'ordre de 3 secondes.
+* il est souhaitable que la comparaison de deux chaines toutes deux de taille 1000 se fasse plus vite que dans un délai de l'ordre de 3 secondes.
 
 ##### Format des fichiers d'entrées
 * le fichier d'entrées peut bien sûr contenir autant de lignes qu'on veut,
@@ -213,7 +229,7 @@ print(f"abc{red_text(message)}ghi")
 
 Le codage de Huffman ([page wikipedia](https://fr.wikipedia.org/wiki/Codage_de_Huffman)) est un principe de codage qui vise à compresser une donnée textuelle en tirant profit de la fréquence des lettres, pour ensuite utiliser des codes plus courts pour les lettres les plus fréquentes.
 
-En partant d'une phrase, on construit un arbre binaire qui compte les occurrences des caractères dans le texte, puis les consolide, tout en gardant l'arbre trié; le résultat de cette opération est que les caractères fréquents (sur le premier exemple, l'espace, le `a` et le `d`) sont les plus près de la racine.
+En partant d'une phrase, on construit un arbre binaire à partir des occurrences de chaque caractère dans le texte ; le résultat de cette opération est que les caractères fréquents (sur le premier exemple, l'espace, le `a` et le `d`) sont les plus près de la racine.
 
 
 Voici l'arbre obtenu avec le même exemple que wikipedia :
@@ -229,8 +245,8 @@ Ou encore sur un exemple un peu plus simple :
 Le codage à proprement parler de la phrase est dérivé de l'arbre de la façon suivante. À chaque lettre/feuille dans l'arbre on va associer une liste de `0` et `1` qui codent le chemin depuis la racine à la feuille en question, avec `0` correspondant à fils gauche - et donc `1` à fils droit.
 
 Ainsi sur ce dernier exemple :
-* l'espace ` ` sera codé par la séquence `00`
-* le `a` est codé `10`
+* l'espace ` ` sera codé par la séquence `00` (fils gauche du fils gauche de la racine)
+* le `a` est codé `10` (fils gauche du fils droit de la racine)
 * le `b` est codé `1111`
 
 et ainsi la phrase entière  
@@ -243,6 +259,7 @@ sera encodée par
 ### ce qu'on vous demande (1)
 
 on vous demande d'écrire dans un répertoire `huffman` un module `codec.py` que l'on peut utiliser de la façon suivante :
+
 
 
 ```python
@@ -265,11 +282,12 @@ decoded = codec.decode(encoded)
 # si cette assertion est fausse il y a un gros problème avec le code
 assert text == decoded
 
-# on afficher le résultat
+# on affiche le résultat
 print(f"{text}\n{encoded}")
 if decoded != text:
     print("OOPS")
 ```
+
 
 
 qui doit alors produire comme sortie
@@ -294,14 +312,16 @@ Redit autrement, si on appelle `Node` le type des objets 'arbre binaire' :
 
 ### Remarques et précisions
 
-* en pratique on n'est pas obligé d'utiliser un arbre/code qui est construit à partir du texte à encoder; on peut imaginer par exemple estimer une bonne fois les fréquences relatives des lettres dans le français, et en déduire un codage, qu'on utilise ensuite tel que
-* remarquez qu'on construit ici le code **à base de caractères** `0` et `1`; on fait ce choix pour ne pas alourdir le sujet, mais bien entendu pour être utile en pratique, il resterait à convertir notre code sous la forme plus compacte où on rangerait ces 0 et 1 **dans des bits**, ce qui permettrait d'occuper 8 fois moins de place !
-
-<!-- #region -->
-XXX je ne suis pas trop sûr à ce stade que ça vaille le coup de proposer cette partie XXX
+* en pratique on n'est pas obligé d'utiliser un arbre/code qui est construit à partir du texte à encoder; on peut imaginer par exemple estimer une bonne fois les fréquences relatives des lettres dans le français, et en déduire un codage, qu'on utilise ensuite tel quel ; cependant pour l'exercice on se contente de ce mode de fonctionnement
 
 
 ### Ce qu'on vous demande (2) **(bonus)**
 
-Comme pour la première partie, on veut pouvoir utiliser cette librairie depuis la ligne de commandes, et pour cela on vous propose en bonus d'écrire, dans le même répertoire que `codec.py`, un module `bundle.py` qui permettra de lancer l'encodage et le décodage d'un fichier 
-<!-- #endregion -->
+Remarquez qu'on construit ici le code **à base de caractères** `0` et `1`; on fait ce choix pour ne pas alourdir le sujet, mais bien entendu pour être utile en pratique, il resterait à convertir notre code sous la forme plus compacte où on rangerait ces 0 et 1 **dans des bits**, ce qui permettrait d'occuper 8 fois moins de place !
+
+En bonus, vous pouvez implémenter également 
+
+* `codec.encode_bin(text: str) -> bytes` retourne le texte `text` encodé avec l'arbre binaire du codec, mais où les `0` et `1` sont rangés dans des octets comme c'est prévu dans l'algorithme original, de manière à effectivement constater un taux de compression
+* `codec.decode_bin(code: bytes) -> str` retourne un code binaire `code` décodé avec le codec
+
+Cette partie est relativement difficile, mais conseillée à ceux d'entre vous qui sont arrivés en début d'année avec déjà un bon niveau en Python ; même en l'absence de résultat fonctionnel, n'hésitez pas à indiquer les voies envisagées et les problèmes rencontrés.
