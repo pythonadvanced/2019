@@ -20,7 +20,7 @@
 # # cours ***Python avancé*** - semaine 8
 
 # %% [markdown]
-# le thème du jour :
+# les thèmes du jour :
 # * TP sur le métro parisien
 # * tutorat / préparation sur l'évaluation
 
@@ -34,14 +34,18 @@
 # <https://nbhosting.inria.fr/auditor/notebook/python-slides:TPs/tps/metro/metro.py>
 
 # %% [markdown]
-# ## énoncé évaluation
+# ## énoncé de l'évaluation du cours
 #
-# en cours de publication
+# l'énoncé de l'évaluation se trouve ici
+# http://localhost:54114/notebooks/git/pythonadvanced-2019/sujet-evaluation.md
+#
+# **objectifs** :
+# que tout le monde ait parfaitement compris ce qui est demandé
 
 # %% [markdown]
+# ***
+#
 # ## rappel - solutions
 #
 # lorsqu'elles sont publiées, les solutions se trouvent dans :
 # https://github.com/pythonadvanced/solutions
-#
-# ***
