@@ -32,7 +32,6 @@ def tracks(coursedir):
                 Section(name="cours 7/9",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours7.ipynb")),
-                ],
                 Section(name="cours 8/9",
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours8.py")),
