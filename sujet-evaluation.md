@@ -24,7 +24,7 @@ On recommande évidemment de lire l'énoncé jusqu'au bout avant de se lancer.
 
 * **description des algorithmes** les deux algorithmes qu'on vous demande d'implémenter sont très classiques; **ne cherchez pas dans l'énoncé** une description détaillée de leur fonctionnement, cela fait partie du devoir que d'aller sur toutes les sources que vous jugez utiles pour trouver des descriptions plus fines de leur fonctionnement ;
 
-* **date limite** la date limite est fixée au **27 Janvier 2020 à minuit**; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
+* la **date limite** est fixée au **27 Janvier 2020 à minuit**; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
 
 * **modalités de rendu** les copies seront **ramassées sur github.com**; on vous recommande de travailler sous git localement, et de **pousser** votre repo local **sur github.com pendant le week-end** suivant la deadline, pour éviter d'exposer votre travail trop tôt; chacun créera sur github un repo qui s'appelle `python-eval`; la correction se basera sur le dernier commit avant la *deadline* ;
 
@@ -85,7 +85,7 @@ Notre modèle un peu simplifié de distance consiste donc à compter le nombre m
 
 Vous remarquerez que dans la version décrite dans wikipedia, on se place dans un modèle plus général; au lieu d'appliquer un coût forfaitaire comme nous le faisons ici, on introduit une matrice qui permet de donner un coût spécifique et individualisé; ainsi le remplacement de 'A' par 'T' peut être compabilisé différemment d'un remplacement de 'A' par 'C', etc… 
 
-Notre simplification, par exemple dans le cas des brins d'ADN ou l'alphabet correspond aux nucléotides {A, C, G, T}, consisterait ainsi à prendre pour ces deux valeurs (toujours avec les notations de wikipedia) :
+Notre simplification, par exemple dans le cas des brins d'ADN ou l'alphabet correspond aux nucléotides {A, C, G, T}, reviendrait ainsi à prendre, toujours avec les notations de wikipedia :
 
   $d = 1$ et 
   $S = \begin{pmatrix}
@@ -192,7 +192,7 @@ AC<span style="color:red; ">C</span>T
   ainsi on pourra écrire des fichiers d'entrée plus lisibles en séparant les paires par des lignes blanches.
 
 ##### Robustesse
-* il n'est pas demandé de vérifier que l'utilisateur utilise bien la classe comme elle a été conçue (par exemple, demander la distance sur un objet qui n'a pas exécuté `compute()` rend un résultat indéterminé) ; 
+* il n'est pas demandé de vérifier que l'appelant utilise bien la classe comme elle a été conçue (par exemple, demander la distance sur un objet qui n'a pas exécuté par `compute()` rend un résultat indéterminé) ; 
 * vous *pouvez* (bonus) si vous le souhaitez, implémenter des garde-fou et lever des exceptions lorsque ce n'est pas le cas ;
 * de manière similaire, on ne vous demande pas de traiter autre chose que des objets de type `str`, 
 mais vous pouvez (bonus) faire en sorte qu'il puisse s'appliquer aussi à, par exemple, des `bytes` 
