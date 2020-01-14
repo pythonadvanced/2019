@@ -36,6 +36,10 @@ def tracks(coursedir):
                         coursedir=coursedir,
                         notebooks=notebooks_by_pattern(coursedir,"cours8.py") 
                                   + notebooks_by_pattern(coursedir,"sujet-evaluation.md")),
+                Section(name="cours 9/9",
+                        coursedir=coursedir,
+                        notebooks=notebooks_by_pattern(coursedir,"cours9.py") 
+                                  + notebooks_by_pattern(coursedir,"sujet-evaluation.md")),
                 ],
               description="le cours de Python avancé"),
         ]
