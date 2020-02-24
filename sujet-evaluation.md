@@ -44,6 +44,10 @@ On recommande évidemment de lire l'énoncé jusqu'au bout avant de se lancer.
 
 * la **date limite** est fixée au **27 Janvier 2020 à minuit**; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
 
+  <div style="background-color:red;padding:20px;margin:20px;">
+    EDIT: la date limite de dépôt est reportée et fixée au 31 Mars à Minuit.
+</div>
+
 * **modalités de rendu** les copies seront **ramassées sur github.com**; on vous recommande de travailler sous git localement, et de **pousser** votre repo local **sur github.com pendant le week-end** suivant la deadline, pour éviter d'exposer votre travail trop tôt; chacun créera sur github un repo qui s'appelle `python-eval`; la correction se basera sur le dernier commit avant la *deadline* ;
 
 * **révisions** en cas de typo, d'erreur ou d'imprécision trouvée dans l'énoncé, une mise à jour sera publiée sur nbhosting et une annonce sera faite sur discourse.
