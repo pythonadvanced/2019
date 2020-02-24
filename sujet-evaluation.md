@@ -42,7 +42,7 @@ On recommande évidemment de lire l'énoncé jusqu'au bout avant de se lancer.
 
 * **description des algorithmes** les deux algorithmes qu'on vous demande d'implémenter sont très classiques; **ne cherchez pas dans l'énoncé** une description détaillée de leur fonctionnement, cela fait partie du devoir que d'aller sur toutes les sources que vous jugez utiles pour trouver des descriptions plus fines de leur fonctionnement ;
 
-* la **date limite** est fixée au **27 Janvier 2020 à minuit**; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
+* la **date limite** ~~est fixée au **27 Janvier 2020 à minuit**~~; donc après le dernier cours du cyle qui a lieu le 15 Janvier 2020, et pendant lequel une seconde séance de tutorat sera organisée ;
 
   <div style="background-color:red;padding:20px;margin:20px;">
     EDIT: la date limite de dépôt est reportée et fixée au 31 Mars à Minuit.
