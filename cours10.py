@@ -33,9 +33,9 @@
 # # cours ***Python avancé*** - 24 Avril 2020
 
 # %% [markdown]
-# thème du jour :
+# Le thème du jour :
 #
-# * programmation asynchrone avec les coroutines : `async`, `await` et `asyncio`
+# > programmation asynchrone avec les coroutines : `async`, `await` et `asyncio`
 
 # %% [markdown]
 # ## Inscrivez-vous sur `fun-mooc.fr`
@@ -49,10 +49,10 @@
 #
 
 # %% [markdown]
-# ## Le sujet d'aujourd'hui
+# ## Le sujet d'aujourd'hui : la semaine nº8
 
 # %% [markdown]
-# Nous vous invitons à suivre la semaine nº8 intitulée "Programmation asynchrone - asyncio". 
+# Nous vous invitons à suivre **la semaine nº8** intitulée "Programmation asynchrone - asyncio".  
 # Pour la trouver, une fois inscrit allez dans l'onglet *Cours* et naviguez dans le contenu comme indiqué ci-dessous.  
 # Le cours de cette semaine 8 contient 9 sections (flêche 3) et chacune contient une vidéo, et éventuellement des notebooks de complément (flêche 4).
 #
