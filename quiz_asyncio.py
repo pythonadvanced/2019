@@ -62,5 +62,6 @@ quiz = Quiz(
     "asyncio",
     max_attempts=3,
     questions=questions,
+    max_grade=20,
 )
 

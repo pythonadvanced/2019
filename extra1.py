@@ -38,7 +38,7 @@
 # > programmation asynchrone avec les coroutines : `async`, `await` et `asyncio`
 
 # %% [markdown]
-# ## Inscrivez-vous sur `fun-mooc.fr`
+# ## inscrivez-vous sur `fun-mooc.fr`
 
 # %% [markdown]
 # La charpente du cours d'aujourd'hui, cela tombe bien avec le confinement, est **[extraite d'un MOOC](https://www.fun-mooc.fr/courses/course-v1:UCA+107001+session02/about)** en ligne sur [le site de **France Université Numérique**](https://www.fun-mooc.fr/).
@@ -49,7 +49,7 @@
 #
 
 # %% [markdown]
-# ## Le sujet d'aujourd'hui : la semaine nº8
+# ## le sujet d'aujourd'hui : la semaine nº8
 
 # %% [markdown]
 # Nous vous invitons à suivre **la semaine nº8** intitulée "Programmation asynchrone - asyncio".  
@@ -57,3 +57,23 @@
 # Le cours de cette semaine 8 contient 9 sections (flêche 3) et chacune contient une vidéo, et éventuellement des notebooks de complément (flêche 4).
 #
 # <img src="mooc.png" width="400px">
+
+# %% [markdown]
+# ## un petit quiz
+
+# %% [markdown]
+# Évaluez la cellule suivante pour voir le quiz, que nous vous demandons de remplir le plus tôt possible après avoir suivi le cours.
+#
+# Mode d'emploi :
+#
+# * toutes les questions ont au moins une réponse valable, si vous ne cochez aucune réponse on considère que vous préférez ne pas répondre
+# * le barême est indiqué pour chaque question; par exemple `3 pt / -1 pt / 0 pt` signifie
+#   * 3 points pour une bonne réponse
+#   * -1 point en cas de réponse fausse
+#   * 0 point si vous ne répondez pas du tout
+# * les questions avec un ♧ indiquent que plusieurs réponses sont possibles; dit autrement, lorsque la question n'a pas de ♧, le fait de cliquer une réponse va dévalider les autres
+# * vous avez plusieurs essais pour y répondre, n'hésitez pas à revenir sur les vidéos en cas de besoin)
+
+# %%
+from quiz_asyncio import quiz
+quiz.widget()
