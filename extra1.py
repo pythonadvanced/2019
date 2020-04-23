@@ -14,7 +14,7 @@
 #     display_name: Python 3
 #     language: python
 #     name: python3
-#   notebookname: "tutorat sujet \xE9valuation"
+#   notebookname: programmation asynchrone
 #   toc:
 #     base_numbering: 1
 #     nav_menu: {}
@@ -27,6 +27,7 @@
 #     toc_position: {}
 #     toc_section_display: true
 #     toc_window_display: false
+#   version: '1.0'
 # ---
 
 # %% [markdown]
