@@ -333,7 +333,8 @@ On considère le code suivant :
         MarkdownOption("l'utilisateur doit forcer l'arrêt du programme au clavier"),
         MarkdownOption("le message `>>> c2` n'apparaît jamais"),
         MarkdownOption("le message `<<< c2` apparaît entre `Début` et `Milieu`", correct=True),
-        MarkdownOption("`Milieu` apparait 200ms après le début du programme")
+        MarkdownOption("le message `Milieu` apparait 100ms après le début du programme", correct=True),
+        MarkdownOption("le message `Milieu` apparait 200ms après le début du programme"),
     ],
 ))
 
