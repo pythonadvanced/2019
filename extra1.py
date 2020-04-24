@@ -106,8 +106,13 @@ await une_coroutine()
 # %% [markdown]
 # ## un petit quiz
 
+# %%
+from quiz_asyncio import quiz1, quiz2
+
 # %% [markdown]
-# Évaluez la cellule suivante pour voir le quiz, que nous vous demandons de remplir **le plus tôt possible après avoir suivi le cours**.
+# **Attention le Quiz comporte deux parties**
+#
+# Évaluez les cellules suivantes pour voir le quiz, que nous vous demandons de remplir **le plus tôt possible après avoir suivi le cours**.
 #
 # <span style="background-color:red; padding: 5px; margin-top: 5px;">On relèvera les résultats le jour du cours à 20:00</span>
 
@@ -117,15 +122,16 @@ await une_coroutine()
 # * toutes les questions ont au moins une réponse valable, si vous ne cochez aucune réponse on considère que vous préférez ne pas répondre
 # * le signe ♧ (c'est le cas pour toutes les questions ici) indique que plusieurs réponses sont possibles
 # * le barême est indiqué pour chaque question; par exemple `4 pts / -1 pt / 0 pt` signifie
-#   * 4) points pour une bonne réponse
-#   * -1 point en cas de réponse fausse
-#   * 0 point si vous ne répondez pas du tout (à nouveau : si vous ne cochez aucune option)
-# * vous avez plusieurs essais pour y répondre, n'hésitez pas à revenir sur les vidéos en cas de besoin); bien entendu, il n'y a pas d'effet cumulatif, le résultat final correspond exactement à votre dernier essai : si vous répondez correctement à la première tentative à la question 1, mais qu'ensuite vous changez d'avis, vous perdez ces points.
+#   * 4 points pour une **bonne réponse**
+#   * -1 point en cas de **réponse fausse**
+#   * 0 point si vous ne répondez **pas du tout** (à nouveau : si vous ne cochez aucune option)
+# * vous avez plusieurs essais pour y répondre, n'hésitez pas à revenir sur les vidéos en cas de besoin; bien entendu, il n'y a pas d'effet cumulatif, le résultat final correspond exactement à votre dernier essai : si vous répondez correctement à la question 1 lors de la première tentative, mais qu'ensuite vous changez d'avis, vous perdez ces points.
 
 # %% scrolled=false
-from quiz_asyncio import quiz
+quiz1.widget()
 
-quiz.widget()
+# %% scrolled=false
+quiz2.widget()
 
 # %% [markdown]
 # ## pour les rapides
