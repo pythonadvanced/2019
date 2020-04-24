@@ -91,7 +91,7 @@ On considère le code suivant :
     question2=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
-    <br> celles qui vraies à la fin de de l'exécution
+    <br> celles qui sont vraies à la fin de de l'exécution
     """),
     options=[
         MarkdownOption("rien n'est affiché", correct=True),
@@ -133,7 +133,7 @@ On considère le code suivant :
     question2=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
-    <br> celles qui vraies à la fin de de l'exécution
+    <br> celles qui sont vraies à la fin de de l'exécution
     """),
     options=[
         MarkdownOption("le programme affiche `42`", correct=True),
@@ -180,7 +180,7 @@ On considère le code suivant :
     question2=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
-    <br> celles qui vraies à la fin de de l'exécution
+    <br> celles qui sont vraies à la fin de de l'exécution
     """),
     options=[
         MarkdownOption("le programme affiche `42`"),
