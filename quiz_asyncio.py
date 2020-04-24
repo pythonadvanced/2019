@@ -115,18 +115,19 @@ On considère le code suivant :
 ***
 
     import asyncio
-    loop = asyncio.get_event_loop()
 
     async def foo():
         await asyncio.sleep(0.1)
         return 42
-        
+
     async def bar():
         await asyncio.sleep(0.05)
         return 58
-        
-    tutu = asyncio.gather(foo(), bar())
-    results = loop.run_until_complete(tutu)
+
+    async def both():
+        return await asyncio.gather(foo(), bar())
+
+    results = asyncio.run(both())
     print(results[0])
 """),
     question2=TextContent("""
@@ -140,6 +141,53 @@ On considère le code suivant :
         MarkdownOption("le programme affiche `58`"),
         MarkdownOption("le programme dure 150ms"),
         MarkdownOption("le programme dure 50ms"),
+        MarkdownOption("rien ne s'exécute, à cause d'une erreur"),
+    ],
+    horizontal_layout=True,
+))
+
+
+# 
+questions.append(
+QuizQuestion(
+    score=SCORE,
+    question=MarkdownContent(
+"""
+On considère le code suivant :
+
+***
+
+    import asyncio
+
+    async def foo():
+        await asyncio.sleep(0.1)
+        return 42
+
+    async def bar():
+        await asyncio.sleep(0.05)
+        return 58
+
+    async def one():
+        return await asyncio.wait(
+            [foo(), bar()],
+            return_when=asyncio.FIRST_COMPLETED)
+
+    done, pending = asyncio.run(one())
+
+    one_done = done.pop()
+    print(one_done.result())
+"""),
+    question2=TextContent("""
+    On exécute ce code dans un interpréteur python;
+    <br> cochez parmi les assertations suivantes 
+    <br> celles qui vraies à la fin de de l'exécution
+    """),
+    options=[
+        MarkdownOption("le programme affiche `42`"),
+        MarkdownOption("le programme dure 100ms"),
+        MarkdownOption("le programme affiche `58`", correct=True),
+        MarkdownOption("le programme dure 150ms"),
+        MarkdownOption("le programme dure 50ms", correct=True),
         MarkdownOption("rien ne s'exécute, à cause d'une erreur"),
     ],
     horizontal_layout=True,

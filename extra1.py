@@ -143,7 +143,7 @@ quiz.widget()
 #
 # dans `game.py`, on veut limiter le nombre de sous-processus  
 #
-# modifiez `game.py` pour garantir que, quel que soit la vitesse à laquelle on crée des sous-process au clavier, il y ait au maximum en tout un maximum de `max` sous-processus qui tournent en même temps, disons par défaut `max=3`; ceux qui sont en excédent sont mis en attente jusqu'à ce qu'une place se libère
+# modifiez `game.py` pour garantir que, quel que soit la vitesse à laquelle on crée des sous-process au clavier, il y ait un maximum de `max` sous-processus qui tournent en même temps, disons par défaut `max=3`; ceux qui sont en excédent sont mis en attente jusqu'à ce qu'une place se libère
 #
 # pour cet exercice je vous conseille de regarder la classe `asyncio.Queue()`; les modifications à faire au code originel sont relativement petites si vous vous y prenez bien
 #
