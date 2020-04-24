@@ -278,7 +278,7 @@ On considère le code suivant :
         MarkdownOption("le programme affiche seulement `abcdef`"),
         MarkdownOption("le programme affiche une pyramide avec 1 `a`, 2 `b`, etc", correct=True),
         MarkdownOption("la variable `ret` vaut `None`"),
-        MarkdownOption("la variable `ret` vaut `'initialisation'`"),
+        MarkdownOption("la variable `ret` vaut `'initialisation'`", correct=True),
     ],
 ))
 
