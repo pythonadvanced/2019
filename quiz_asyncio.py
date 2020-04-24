@@ -26,7 +26,7 @@ le problème se découpe bien en morceaux indépendant les uns des autres;
 on veut absolument utiliser Python pour écrire ce programme;
 on dispose d'une machine avec 64 processeurs, et on essaie de se débrouiller
 pour les utiliser au mieux.
-Cochez les options qui sont raisonnables dans ce contexte :
+<br>Cochez les options qui sont raisonnables dans ce contexte :
 """),
 #    question2="",
     options=[
@@ -53,7 +53,7 @@ QuizQuestion(
         question=MarkdownContent(
 """
 Indiquer, parmi les opérations suivantes, 
-celles qui sont susceptibles d'induire un délai dans du code synchrone,
+celles qui sont susceptibles d'induire un délai sensible dans du code synchrone,
 et que vous pourriez avoir intérêt à gérer de manière asynchrone pour 
 rendre votre application plus efficace ou plus réactive :
 """),
@@ -64,6 +64,7 @@ rendre votre application plus efficace ou plus réactive :
         MarkdownOption("temporisation/attente volontaire", correct=True),
         MarkdownOption("accès au disque dur ou base de données", correct=True),
         MarkdownOption("accès à la mémoire vive"),
+        MarkdownOption("accès au terminal", correct=True),
     ],
 ))
 
@@ -81,7 +82,7 @@ On considère le code suivant :
     import asyncio
 
     async def foo():
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(1)
         print("done")
         return 42
         
@@ -98,6 +99,48 @@ On considère le code suivant :
         MarkdownOption("la variable `x` vaut `42`"),
         MarkdownOption("(l'objet référencé par) la variable `x` est awaitable", correct=True),
         MarkdownOption("rien ne s'exécute, à cause d'une erreur de syntaxe"),
+    ],
+    horizontal_layout=True,
+))
+
+
+# 
+questions.append(
+QuizQuestion(
+    score=SCORE,
+    question=MarkdownContent(
+"""
+On considère le code suivant :
+
+***
+
+    import asyncio
+    loop = asyncio.get_event_loop()
+
+    async def foo():
+        await asyncio.sleep(0.1)
+        return 42
+        
+    async def bar():
+        await asyncio.sleep(0.05)
+        return 58
+        
+    tutu = asyncio.gather(foo(), bar())
+    results = loop.run_until_complete(tutu)
+    print(results[0])
+"""),
+    question2=TextContent("""
+    On exécute ce code dans un interpréteur python;
+    <br> cochez parmi les assertations suivantes 
+    <br> celles qui vraies à la fin de de l'exécution
+    """),
+    options=[
+        MarkdownOption("le programme affiche `42`", correct=True),
+        MarkdownOption("le programme dure 100ms", correct=True),
+        MarkdownOption("le programme affiche `58`"),
+        MarkdownOption("le programme dure 150ms"),
+        MarkdownOption("le programme dure 50ms"),
+        MarkdownOption("rien ne s'exécute, à cause d'une erreur"),
     ],
     horizontal_layout=True,
 ))

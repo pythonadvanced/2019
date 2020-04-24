@@ -37,6 +37,10 @@
 # Le thème du jour :
 #
 # > programmation asynchrone avec les coroutines : `async`, `await` et `asyncio`
+#
+# <span style="background-color:red; padding: 10px 30px;">
+#     notez bien la présence du quiz un peu plus bas dans ce document
+# </span>
 
 # %% [markdown]
 # ## inscrivez-vous sur `fun-mooc.fr`
@@ -72,15 +76,15 @@
 # # nécessaire en Python-3.6
 #
 # loop = asyncio.get_event_loop()
-# loop.run_until_complete(unecoroutine())
+# loop.run_until_complete(une_coroutine())
 # ```
 #
-# Avec le Python d'aujourd'hui - disons Python-3.7 - on peut remplacer cela par un idiome plus léger :
+# Avec le Python d'aujourd'hui - disons Python-3.7 - on peut - le plus souvent - remplacer cela par un idiome plus léger :
 #
 # ```python
 # # suffisant en Python-3.7
 #
-# asyncio.run(unecoroutine())
+# asyncio.run(une_coroutine())
 # ```
 
 # %% [markdown]
@@ -90,14 +94,14 @@
 # définissons une coroutine 
 import asyncio
 
-async def unecoroutine():
+async def une_coroutine():
     await asyncio.sleep(0.5)
     print("après un petit délai")
 
 # %%
 # dans IPython c'est encore plus simple maintenant 
 
-await unecoroutine()
+await une_coroutine()
 
 # %% [markdown]
 # ## un petit quiz
@@ -105,20 +109,20 @@ await unecoroutine()
 # %% [markdown]
 # Évaluez la cellule suivante pour voir le quiz, que nous vous demandons de remplir **le plus tôt possible après avoir suivi le cours**.
 #
-# <span style="background-color:red; padding: 5px; margin-top: 5px;">On relèvera les résultats le lundi 27 dans la matinée</span>
+# <span style="background-color:red; padding: 5px; margin-top: 5px;">On relèvera les résultats le jour du cours à 20:00</span>
 
 # %% [markdown]
 # Mode d'emploi :
 #
 # * toutes les questions ont au moins une réponse valable, si vous ne cochez aucune réponse on considère que vous préférez ne pas répondre
 # * le signe ♧ (c'est le cas pour toutes les questions ici) indique que plusieurs réponses sont possibles
-# * le barême est indiqué pour chaque question; par exemple `3 pt / -1 pt / 0 pt` signifie
-#   * 3 points pour une bonne réponse
+# * le barême est indiqué pour chaque question; par exemple `4 pts / -1 pt / 0 pt` signifie
+#   * 4) points pour une bonne réponse
 #   * -1 point en cas de réponse fausse
 #   * 0 point si vous ne répondez pas du tout (à nouveau : si vous ne cochez aucune option)
 # * vous avez plusieurs essais pour y répondre, n'hésitez pas à revenir sur les vidéos en cas de besoin); bien entendu, il n'y a pas d'effet cumulatif, le résultat final correspond exactement à votre dernier essai : si vous répondez correctement à la première tentative à la question 1, mais qu'ensuite vous changez d'avis, vous perdez ces points.
 
-# %%
+# %% scrolled=false
 from quiz_asyncio import quiz
 
 quiz.widget()
@@ -132,13 +136,18 @@ quiz.widget()
 # %% [markdown]
 # ### exo -  niveau facile
 #
-# modifiez `async_http.py` pour que le programme affiche un 'tick' à une certaine fréquence, par exemple toutes les 100ms
+# modifiez `async_http.py` pour que le programme affiche en plus un 'tick' à une certaine fréquence, par exemple toutes les 100ms
 
 # %% [markdown]
 # ### exo - niveau intermédiaire
 #
 # dans `game.py`, on veut limiter le nombre de sous-processus  
-# modifiez `game.py` pour garantir que, quel que soit la vitesse à laquelle on crée des sous-process au clavier, on ne conserve en tout qu'au maximum, disons 4, sous-processus
+#
+# modifiez `game.py` pour garantir que, quel que soit la vitesse à laquelle on crée des sous-process au clavier, il y ait au maximum en tout un maximum de `max` sous-processus qui tournent en même temps, disons par défaut `max=3`; ceux qui sont en excédent sont mis en attente jusqu'à ce qu'une place se libère
+#
+# pour cet exercice je vous conseille de regarder la classe `asyncio.Queue()`; les modifications à faire au code originel sont relativement petites si vous vous y prenez bien
+#
+# notez bien que `game.py` n'est qu'un prétexte ici, on peut se fixer le même objectif avec à peu près n'importe quel code qui lance *n* tâches similaires en même temps
 
 # %% [markdown]
 # ### exo - niveau avancé
@@ -157,7 +166,7 @@ quiz.widget()
 # **Hints** 
 #
 # * pour trouver les hyperliens; souvenez-vous du cours HTML, un hyperlien ça se présente sous ce genre de forme  
-#   `<a href="http://un.autre.endroit/">`  
+#   `<a href="http://unautre.endroit.com/">`  
 #   on pourrait penser utiliser des expressions régulières mais je ne vous conseille pas trop, il y a énormément de variantes possibles : ça peut être des quotes doubles ou simples, il peut y avoir d'autres attributs que le `href` dans le tag `<a>` et dans n'importe quel ordre…  
 #   pour faire ces traitements-là je vous conseille la librairie `beautifulsoup4` - voyez plus bas
 #   
@@ -202,10 +211,19 @@ for link in soup.findAll('a'):
 
 # %% [markdown]
 # Comment ça se lit ? eh bien comme vous le devinez :
-# . si l'url contient un nom de machine (comme https://r2labapi.inria.fr/) c'est l'url du lien
-# . si elle commence par un `/`, c'est le chemin par rapport au domaine courant
-# . si elle commence par autre chose, c'est le chemin par rapport au répertoire courant
 #
-# donc ici `/overview.md` et `news.md` se récrivent toutes les deux en `https://r2lab.inria.fr/overview.md` et `https://r2lab.inria.fr/news.md`
+# * si l'url contient un nom de machine (comme https://r2labapi.inria.fr/) bon là c'est simple, c'est l'url du lien
+# * si elle commence par un `/`, c'est le chemin par rapport au domaine courant
+# * si elle commence par autre chose, c'est le chemin par rapport au répertoire courant
 #
-# mais si trouve ce HTML dans la page disons `https://r2lab.inria.fr/un/chemin/unepage.md`, alors `/overview.md` et `news.md` se récrivent en `https://r2lab.inria.fr/overview.md` et `https://r2lab.inria.fr/un/chemin/news.md` parce que le second est relatif au chemin courant.
+# donc ici comme la page de départ se trouve tout en haut dans le site, il n'y a pas de différence :
+#
+# * `/overview.md` ⇔ `https://r2lab.inria.fr/overview.md`, et
+# * `news.md` ⇔ `https://r2lab.inria.fr/news.md`
+#
+# mais si on avait obtenu cette page HTML depuis une page plus profonde dans le site, disons par exemple `https://r2lab.inria.fr/un/chemin/unepage.md`, alors 
+#
+# * `/overview.md` ⇔ `https://r2lab.inria.fr/overview.md` car chemin absolu,
+# * `news.md` ⇔ `https://r2lab.inria.fr/un/chemin/news.md` car chemin relatif au chemin courant
+#
+# Notez enfin que ce qui apparaît après le `#` dans par exemple `tools.md#main` peut être ignoré pour notre cas d'usage; il s'agit d'un lien qui pointe vers l'ancre `main` *à l'intérieur* de la page `https://r2lab.inria.fr/tools.md`
