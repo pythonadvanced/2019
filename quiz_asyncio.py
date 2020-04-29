@@ -50,7 +50,7 @@ grâce à `asyncio.gather` et ainsi on peut assembler les résultats
 questions.append(
 QuizQuestion(
     score=SCORE,
-        question=MarkdownContent(
+    question=MarkdownContent(
 """
 Indiquer, parmi les opérations suivantes, 
 celles qui sont susceptibles d'induire un délai sensible dans du code synchrone,
@@ -159,7 +159,7 @@ On considère le code suivant :
 ))
 
 quiz1 = Quiz(
-    "asyncio1",
+    exoname="asyncio1",
     max_attempts=4,
     questions=questions,
     max_grade=20,
@@ -340,7 +340,7 @@ On considère le code suivant :
 
 
 quiz2 = Quiz(
-    "asyncio2",
+    exoname="asyncio2",
     max_attempts=4,
     questions=questions,
     max_grade=20,
