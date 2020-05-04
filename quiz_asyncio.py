@@ -28,7 +28,7 @@ on dispose d'une machine avec 64 processeurs, et on essaie de se débrouiller
 pour les utiliser au mieux.
 <br>Cochez les options qui sont raisonnables dans ce contexte :
 """),
-#    question2="",
+#    question_sequel="",
     options=[
         MarkdownOption("""
 on crée autant de processus que 
@@ -57,7 +57,7 @@ celles qui sont susceptibles d'induire un délai sensible dans du code synchrone
 et que vous pourriez avoir intérêt à gérer de manière asynchrone pour 
 rendre votre application plus efficace ou plus réactive :
 """),
-    question2="",
+    question_sequel="",
     options=[
         MarkdownOption("accès réseau", correct=True),
         MarkdownOption("attente d'événements liés à des sous-process", correct=True),
@@ -95,7 +95,7 @@ On considère le code suivant :
     results = asyncio.run(both())
     print(results[0])
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
     <br> celles qui sont vraies à la fin de de l'exécution
@@ -142,7 +142,7 @@ On considère le code suivant :
     one_done = done.pop()
     print(one_done.result())
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
     <br> celles qui sont vraies à la fin de de l'exécution
@@ -188,7 +188,7 @@ On considère le code suivant :
         
     x = foo()
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python;
     <br> cochez parmi les assertations suivantes 
     <br> celles qui sont vraies à la fin de de l'exécution
@@ -225,7 +225,7 @@ On considère le code suivant :
 
 
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python,
     <br> cochez parmi les assertions suivantes celles qui sont vraies :
     """),
@@ -269,7 +269,7 @@ On considère le code suivant :
         print(coro.send(i))
 
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python,
     <br> cochez parmi les assertions suivantes celles qui sont vraies :
     """),
@@ -322,7 +322,7 @@ On considère le code suivant :
         print("bye")
     print("done")
 """),
-    question2=TextContent("""
+    question_sequel=TextContent("""
     On exécute ce code dans un interpréteur python,
     <br> cochez parmi les assertions suivantes celles qui sont vraies :
     """),

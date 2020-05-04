@@ -4,12 +4,10 @@
 #   jupytext:
 #     cell_metadata_filter: all
 #     formats: py:percent
-#     notebook_metadata_filter: all,-language_info
+#     notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.3.4
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
