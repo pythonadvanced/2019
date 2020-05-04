@@ -1,0 +1,121 @@
+# just checking the YAML input system on a real one
+# it would have helped to add explanations as well...
+
+globals:
+  score: &score 4
+
+repo-git:
+  type: Quiz
+  exoname: "git-tree-structure"
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q11 q12 q13 q14
+
+q11:
+  type: QuizQuestion
+  score: *score
+  question:
+    text: |
+      q11
+  question_sequel: 
+    "Cochez les options qui sont raisonnables dans ce contexte :"
+  options:
+    - correct: yes
+      text: |
+        option 11
+
+q12:
+  type: QuizQuestion
+  score: *score
+  question:
+    text: |
+      q12
+  options:
+    - correct: yes
+      text: option 12
+
+q13:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q13
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 13
+            
+q14:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q14
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 14
+            
+
+###########################################################
+###########################################################
+
+notebooks-interactifs:
+  type: Quiz
+  exoname: "interact-and-co"
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q21 q22 q23 q24
+
+
+q21:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q21
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 21
+
+q22:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q22
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 22
+
+q23:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q23
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 23
+
+q24:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    q24
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 24

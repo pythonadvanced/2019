@@ -1,0 +1,327 @@
+# just checking the YAML input system on a real one
+# it would have helped to add explanations as well...
+
+globals:
+  score: &score 4
+
+quiz1:
+  type: Quiz
+  exoname: asyncio1
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q11 q12 q13 q14
+
+q11:
+  type: QuizQuestion
+  score: *score
+  question:
+    text: |
+      On a besoin d'écrire un programme très gourmand en calcul; 
+      le problème se découpe bien en morceaux indépendant les uns des autres;
+      on veut absolument utiliser Python pour écrire ce programme;
+      on dispose d'une machine avec 64 processeurs, et on essaie de se débrouiller
+      pour les utiliser au mieux.
+  question_sequel: 
+    "Cochez les options qui sont raisonnables dans ce contexte :"
+  options:
+    - correct: yes
+      text: |
+        on crée autant de processus que 
+        de morceaux, en assemblant les résultats à la fin
+    - text: |
+        on crée autant de threads que 
+        de morceaux, en assemblant les résultats à la fin
+    - text: |
+        on crée autant de coroutines que de morceaux, on synchronise les résultats 
+        grâce à `asyncio.gather` et ainsi on peut assembler les résultats
+
+
+q12:
+  type: QuizQuestion
+  score: *score
+  question:
+    text: |
+      Indiquer, parmi les opérations suivantes, 
+      celles qui sont susceptibles d'induire un délai sensible dans du code synchrone,
+      et que vous pourriez avoir intérêt à gérer de manière asynchrone pour 
+      rendre votre application plus efficace ou plus réactive :
+  options:
+    - correct: yes
+      text: accès réseau
+    - correct: yes
+      text: attente d'événements liés à des sous-process
+    - correct: yes
+      text: temporisation/attente volontaire
+    - correct: yes
+      text: accès au disque dur ou base de données
+    - correct: no
+      text: accès à la mémoire vive
+    - correct: yes
+      text: accès au terminal
+
+q13:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+      On considère le code suivant :
+
+      ```
+      ##############
+      import asyncio
+
+      async def foo():
+          await asyncio.sleep(0.1)
+          return 42
+
+      async def bar():
+          await asyncio.sleep(0.05)
+          return 58
+
+      async def both():
+          return await asyncio.gather(foo(), bar())
+
+      results = asyncio.run(both())
+      print(results[0])
+      ```
+  question_sequel: |
+    On exécute ce code dans un interpréteur python;
+    <br> cochez parmi les assertations suivantes 
+    <br> celles qui sont vraies à la fin de de l'exécution
+  options:
+    - correct: yes
+      text: le programme affiche `42`
+      explanation: >
+        `gather` retourne les résultats de ses deux coroutines 
+        et dans le même ordre, donc `results[0]` contient le résultat 
+        de `foo()`
+    - correct: yes
+      text: le programme dure 100ms
+      explanation: >
+        la durée du `gather` correspond au max de la durée des deux
+        coroutines
+    - correct: no
+      text: le programme affiche `58`
+      explanation: > 
+        c'est `results[1]` qui contient `58`, mais ce n'est pas affiché
+    - correct: no
+      text: le programme dure 150ms
+    - correct: no
+      text: le programme dure 50ms
+    - correct: no
+      text: rien ne s'exécute, à cause d'une erreur
+      
+
+q14:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: true
+  question: |
+    On considère le code suivant :
+
+    ***
+
+        import asyncio
+
+        async def foo():
+            await asyncio.sleep(0.1)
+            return 42
+
+        async def bar():
+            await asyncio.sleep(0.05)
+            return 58
+
+        async def one():
+            return await asyncio.wait(
+                [foo(), bar()],
+                return_when=asyncio.FIRST_COMPLETED)
+
+        done, pending = asyncio.run(one())
+
+        one_done = done.pop()
+        print(one_done.result())
+  question_sequel: |
+    On exécute ce code dans un interpréteur python;
+    <br> cochez parmi les assertations suivantes 
+    <br> celles qui sont vraies à la fin de de l'exécution
+  options:
+    - correct: no
+      text: le programme affiche `42`
+    - correct: no
+      text: le programme dure 100ms
+    - correct: yes
+      text: le programme affiche `58`
+    - correct: no
+      text: le programme dure 150ms
+    - correct: yes
+      text: le programme dure 50ms
+    - correct: no
+      text: rien ne s'exécute, à cause d'une erreur
+
+
+###########################################################
+###########################################################
+
+quiz2:
+  type: Quiz
+  exoname: asyncio2
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q21 q22 q23 q24
+
+
+q21:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    On considère le code suivant :
+    ***
+
+        import asyncio
+
+        async def foo():
+            await asyncio.sleep(1)
+            print("done")
+            return 42
+            
+        x = foo()
+  question_sequel: 
+    type: TextContent
+    text: |
+      On exécute ce code dans un interpréteur python;
+      <br> cochez parmi les assertations suivantes
+      <br> celles qui sont vraies à la fin de de l'exécution
+  options:
+      - text: rien n'est affiché
+        correct: yes
+      - le programme a affiché `done`
+      - la variable `x` vaut `42`
+      - text: (l'objet référencé par) la variable `x` est awaitable
+        correct: yes
+      - rien ne s'exécute, à cause d'une erreur de syntaxe
+
+
+q22: 
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    On considère le code suivant :
+
+    ***
+
+        import asyncio
+
+        async def main():
+            print("dans main")
+            await asyncio.sleep(1)
+
+        coro = main()
+        coro.send(None)
+  question_sequel: |
+    On exécute ce code dans un interpréteur python,
+    <br> cochez parmi les assertions suivantes celles qui sont vraies :
+  options:
+    - text: le programme affiche `dans main`
+      correct: yes
+    - une exception est levée car `main` n'a jamais été awaitée
+    - text: le programme dure quelques millisecondes
+      correct: yes
+    - le programme dure 1 s
+
+
+q23:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    On considère le code suivant :
+
+    ***
+        class Awaitable():
+            def __init__(self, message):
+                self.message = message
+
+            def __await__(self):
+                factor = yield "initialisation"
+                for char in self.message:
+                    factor = yield char*factor
+
+        async def main(message):
+            await Awaitable(message)
+
+        message = "abcdef"
+        coro = main(message)
+        ret = coro.send(None)
+
+        for i in range(1, len(message)+1):
+            print(coro.send(i))
+
+  question_sequel: |
+    On exécute ce code dans un interpréteur python,
+    <br> cochez parmi les assertions suivantes celles qui sont vraies :
+  options:
+    - text: une exception est levée car `main` n'a jamais été awaitée
+    - text: le programme affiche seulement `abcdef`
+    - text: le programme affiche une pyramide avec 1 `a`, 2 `b`, etc
+      correct: yes
+    - text: la variable `ret` vaut `None`
+    - text: la variable `ret` vaut `'initialisation'`
+      correct: yes
+
+
+q24:
+  type: QuizQuestion
+  score: *score
+  horizontal_layout: yes
+  question: |
+    On considère le code suivant :
+
+    ***
+        import asyncio
+
+        TICK = 0.05
+
+        async def c1():
+            print(">>> c1")
+            await asyncio.sleep(1*TICK)
+            asyncio.ensure_future(c2())
+            await asyncio.sleep(3*TICK)
+            print("<<< c1")
+            asyncio.get_event_loop().stop()
+
+        async def c2():
+            print(">>> c2")
+            await asyncio.sleep(1*TICK)
+            print("<<< c2")
+            asyncio.get_event_loop().stop()
+
+        asyncio.ensure_future(c1())
+        try:
+            print("Début")
+            asyncio.get_event_loop().run_forever()
+            print("Milieu")
+            asyncio.get_event_loop().run_forever()
+            print("Fin")
+        except KeyboardInterrupt:
+            print("bye")
+        
+        print("done")
+  question_sequel: |
+    On exécute ce code dans un interpréteur python,
+    <br> cochez parmi les assertions suivantes celles qui sont vraies :
+  options:
+    - text: le programme s'exécute et seulement `done` s'affiche à la fin
+    - text: le message `<<< c1` apparaît entre `Début` et `Milieu`
+    - text: le message `<<< c1` apparaît entre `Milieu` et `Fin`
+      correct: yes
+    - text: l'utilisateur doit forcer l'arrêt du programme au clavier
+    - text: le message `>>> c2` n'apparaît jamais
+    - text: le message `<<< c2` apparaît entre `Début` et `Milieu` 
+      correct: yes
+    - text: le message `Milieu` apparait 100ms après le début du programme
+      correct: yes
+    - text: le message `Milieu` apparait 200ms après le début du programme
