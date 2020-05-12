@@ -1,0 +1,255 @@
+# just checking the YAML input system on a real one
+# it would have helped to add explanations as well...
+
+globals:
+  score: &global_score 4
+  common-question: &common-question | 
+    Je travaille sur un projet qui s'appelle `tartempion`,  
+    nous avons une classe `Simulator` dans un module source `simulator.py`,  
+    la classe `Simulator` utilise la classe `Boat` du fichier source `boat.py`,  
+    le module `simulator.py` n'est pas un point d'entrée,  
+  common-sequel: &common-sequel |
+    cochez les phrases qui décrivent une bonne pratique :
+
+
+repo-git-imports:
+  type: Quiz
+  exoname: "repo-structure"
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q11 q12 q13 q14
+
+q11:
+  type: QuizQuestion
+  score: *global_score
+  question: *common-question
+  question_sequel: *common-sequel
+  options:
+    - text: | 
+        je vérifie sur `pypi.org` qu'aucune bibliothèque de nom `tartempion` 
+        n'y est disponible
+      correct: yes
+      explanation: |
+        bien que ça ne soit pas strictement nécessaire tant qu'on n'a pas l'intention
+        de publier dans PyPI, il est recommandé de cohisir dès le départ un nom qui n'est
+        pas déjà pris par un package publié dans PyPI.
+    - text: |
+        je regroupe tout mon code dans un sous-dossier qui s'appelle `tartempion`
+      correct: yes
+    - text: |
+        je regroupe tout mon code dans un sous-dossier qui s'appelle `sources`
+      correct: no
+    - text: |
+        je regroupe tous mes sources `.py` à la racine de mon dépôt git
+      correct: no
+    - text: |
+        j'écris un fichier `setup.py` à la racine du projet
+      correct: yes
+
+q12:
+  type: QuizQuestion
+  score: *global_score
+  question: *common-question
+  question_sequel: *common-sequel
+  options:
+    - correct: yes
+      text: | 
+        je peux écrire dans `simulator.py`  
+        ```
+            from tartempion.boat import Boat
+        ```
+      explanation: |
+        oui c'est tout à fait correct, c'est la façon la plus simple de procéder,
+        puisque tout notre code est contenu dans le package `tartempion` qui sert 
+        d'espace d'espace de noms pour éviter les conflits de nommage 
+        avec d'autres librairies
+    - correct: no
+      text: |
+        puisque `simulator.py` et `boat.py` sont dans le même répertoire, 
+        je peux écrire dans `simulator.py`  
+        ```
+            from boat import Boat
+        ```
+      explanation: | 
+        si j'écris cela je vais chercher un module globalement connu sous le nom de `boat`, 
+        alors que la bonne pratique consiste à isoler son code dans un *namespace*.
+
+        notez toutefois qu'**on peut** ici utiliser un **import relatif** et écrire 
+        (notez la présence du `.`) 
+        ```
+            from .boat import Boat
+        ```
+    - correct: yes
+      text: |
+        puisque `simulator.py` et `boat.py` sont dans le même répertoire, 
+        je peux écrire dans `simulator.py`  
+        ```
+            from .boat import Boat
+        ```
+      explanation: |
+        on peut utiliser un import relatif entre deux modules usuels
+
+        NB. cela ne serait pas recommandé si `simulator.py` était un point d'entrée
+q13:
+  type: QuizQuestion
+  score: *global_score
+  question: |
+    J'ai créé un module de test dans `tests/test_boat.py` qui fait  
+    ```
+        from tartempion.boat import Boat
+    ```
+    quand je l'exécute `pytest` à la racine du projet, j'ai un message d'erreur  
+    > `ModuleNotFoundError: No module named 'tartempion'`
+  question_sequel: |
+    Je peux faire quoi pour faire passer mon test, en respectant les bonnes pratiques ?
+  options:
+    - correct: yes
+      text: | 
+        j'installe mon projet en mode développeur en faisant :  
+        ```
+        pip install -e .
+        ```
+    - correct: no
+      text: | 
+        je définis la variable d'environnement `PYTHONPATH` en lui affectant 
+        le chemin complet d'accès à mon repo
+      explanation: |
+        cela fonctionnerait, l'interpréteur trouverait bien le module  
+        **MAIS** ce n'est pas une bonne pratique, 
+        c'est trop sujet aux erreurs de manipulation lorsqu'on bascule 
+        d'un projet à l'autre
+    - correct: no
+      text: | 
+        il faut que je lance `pytest` dans le sous-dossier `tartempion`
+
+            
+q14:
+  type: QuizQuestion
+  score: *global_score
+  question: |
+    À propos de la mécanique de recherche des modules en Python :  
+
+    on se place dans le répertoire `/la/ou/on/est`, et on lance
+    ```
+        python /le/programme/main.py
+    ```  
+
+    lors de cette exécution on rencontre une instruction
+    ```
+    import tutu
+    ```
+
+    cochez les affirmations valides :
+  options:
+    - correct: yes
+      text: |
+        on peut résoudre l'import dès lors que le fichier  
+        `/le/programme/tutu.py`  
+        existe
+    - correct: yes
+      text: |
+        on peut résoudre l'import dès lors que le dossier  
+        `/le/programme/tutu/`  
+        existe
+      explanation: |
+        il n'est **plus nécessaire** de créer un fichier `__init__.py` 
+        dans un dossier pour en faire un package, bien que cela
+        reste une pratique très fréquente
+    - correct: no
+      text: |
+        on peut résoudre l'import dès lors que le fichier  
+        `/la/ou/on/est/tutu.py`  
+        existe
+      explanation: | 
+        le répertoire courant n'est pas utilisé pour la recherche
+        des modules, sauf avec l'interpréteur en mode interactif
+
+
+###########################################################
+###########################################################
+
+notebooks-interactifs:
+  type: Quiz
+  exoname: "interact-and-co"
+  max_attempts: 4
+  max_grade: 20
+  shuffle: no
+  questions: q21 q22 q23 q24
+
+
+q21:
+  type: QuizQuestion
+  score: *global_score
+  exactly_one_option: yes
+  horizontal_layout: yes
+  question:
+    type: MathContent
+    text: |
+      pour p sur l'intervalle [0, 1], on pose $q=(1-p)$
+      <br> et on considère les deux fonctions suivantes
+
+      $$ \phi_1: p \rightarrow 2pq + q^2 $$
+
+      $$ \phi_2: p \rightarrow 6p^2q^2 + 4 pq^3 + q^4$$
+
+      ces deux courbes se croisent pour $p_0$ quelque part entre 0.2 et 0.4
+  question_sequel: 
+    "utilisez matplotlib pour déterminer plus précisément si :"
+  explanation: |
+    Utilisez le mode interactif de matplotlib  
+    (Vous pouvez vérifier que la réponse est 1/3)
+    
+    <img src="media/mpl-zoom.png" width="400px"> 
+  shuffle: no
+  options:
+    - text: "$p_0 <= 0.31$"
+      type: MathOption
+    - text: "$0.31 <= p_0 <= 0.32$"
+      type: MathOption
+    - text: "$0.32 <= p_0 <= 0.33$"
+      type: MathOption
+    - correct: yes
+      type: MathOption
+      text: |
+        $0.33 <= p_0 <= 0.34$
+    - text: "$0.34 <= p_0 <= 0.35$"
+      type: MathOption
+    - text: "$0.35 <= p_0$"
+      type: MathOption
+
+q22:
+  type: QuizQuestion
+  score: *global_score
+  horizontal_layout: yes
+  question: |
+    q22
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 22
+
+q23:
+  type: QuizQuestion
+  score: *global_score
+  horizontal_layout: yes
+  question: |
+    q23
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 23
+
+q24:
+  type: QuizQuestion
+  score: *global_score
+  horizontal_layout: yes
+  question: |
+    q24
+  question_sequel: |
+    now
+  options:
+    - correct: yes
+      text: option 24
