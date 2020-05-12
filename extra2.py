@@ -12,7 +12,7 @@
 #     display_name: Python 3
 #     language: python
 #     name: python3
-#   notebookname: programmation asynchrone
+#   notebookname: git layout & interactive notebooks
 #   version: '1.0'
 # ---
 
