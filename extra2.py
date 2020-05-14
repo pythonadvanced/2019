@@ -31,8 +31,11 @@
 # *** 
 #
 # <span style="background-color: red; padding: 10px;">
-#     notez bien la présence des 2 quiz (un par sujet) un peu plus bas dans ce document
+# Notez bien les éléments que vous avez à rendre :
 # </span>
+#
+# * un quiz, consacré essentiellement à la première partie,
+# * pour la seconde partie, on vous demande d'envoyer à votre enseignant votre solution pour **au moins un des deux exercices** proposés (Taylor ou coronavirus)
 
 # %% [markdown]
 # # partie cours
@@ -55,7 +58,7 @@
 #
 # **Consignes** :
 #
-# * au minimum vous devez bien entendu répondre au quiz ci-dessous;
+# * au minimum vous devez répondre au quiz ci-dessous;
 # * si votre **projet informatique est en Python**, il sera impératif que vous suiviez ces bonnes pratiques pour le rendu.
 
 # %% [markdown]
@@ -72,24 +75,21 @@
 # * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-c5-bokeh-et-al
 # * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-c6-fourier-k3d
 #
-# #### exercices :
+# #### exercices :
 #
 # * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-x1-taylor
 # * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-x2-coronavirus
 #
 # **Consignes**
 #
-# * ici aussi naturellement vous devez répondre au quiz ci-dessous
-# * xxx à compléter
+# * faites passer à votre enseignant votre travail pour au moins un des deux exercices ci-dessus; pour les élèves rapides, n'hésitez pas à les traiter tous les deux.
 #
 
 # %% [markdown]
-# # les quiz d'aujourd'hui
+# # le quiz d'aujourd'hui
 
 # %% [markdown]
-# **Attention il y a deux quiz séparés**
-#
-# Évaluez les cellules suivantes pour voir le quiz, que nous vous demandons de remplir **le plus tôt possible après avoir suivi le cours**.
+# Évaluez la cellule suivante pour voir le quiz, que nous vous demandons de remplir **le plus tôt possible après avoir suivi le cours**.
 #
 # <span style="background-color:red; padding: 10px; margin-top: 5px;">On relèvera les résultats le jour du cours à 20:00</span>
 
@@ -109,7 +109,8 @@
 #   il se peut que votre note soit supérieure au score final affiché, qui correspond à la dernière tentative
 
 # %% [markdown]
-# ## quiz - structure du repo git
+# <span style="background-color:red; padding: 10px; margin-top: 5px;">
+# N'oubliez pas de traiter aussi au moins un des deux exercices (Taylor et coronavirus) consacrés à la deuxième partie.</span>
 
 # %%
 from nbautoeval import run_yaml_quiz
@@ -119,22 +120,8 @@ from nbautoeval import run_yaml_quiz
 # juste pour remettre les compteurs à zéro pendant qu'on relit
 
 from nbautoeval.storage import storage_clear
-storage_clear("repo-structure")
+storage_clear("repo-structure-and-dataviz")
 # xxx REMOVE ME
 
-# %%
-run_yaml_quiz("quiz-extra2", "repo-git-imports")
-
-# %% [markdown]
-# ## quiz - notebooks interactifs
-
-# %%
-# xxx REMOVE ME
-# juste pour remettre les compteurs à zéro pendant qu'on relit
-
-from nbautoeval.storage import storage_clear
-storage_clear("interact-and-co")
-# xxx REMOVE ME
-
-# %%
-run_yaml_quiz("quiz-extra2", "notebooks-interactifs")
+# %% scrolled=false
+run_yaml_quiz("quiz-extra2", "quiz-all")

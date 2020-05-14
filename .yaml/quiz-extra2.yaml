@@ -12,13 +12,13 @@ globals:
     cochez les phrases qui décrivent une bonne pratique :
 
 
-repo-git-imports:
+quiz-all:
   type: Quiz
-  exoname: "repo-structure"
+  exoname: "repo-structure-and-dataviz"
   max_attempts: 4
   max_grade: 20
   shuffle: no
-  questions: q11 q12 q13 q14
+  questions: q11 q12 q13 q14 q15
 
 q11:
   type: QuizQuestion
@@ -166,19 +166,7 @@ q14:
         des modules, sauf avec l'interpréteur en mode interactif
 
 
-###########################################################
-###########################################################
-
-notebooks-interactifs:
-  type: Quiz
-  exoname: "interact-and-co"
-  max_attempts: 4
-  max_grade: 20
-  shuffle: no
-  questions: q21 q22 q23 q24
-
-
-q21:
+q15:
   type: QuizQuestion
   score: *global_score
   exactly_one_option: yes
@@ -217,39 +205,3 @@ q21:
       type: MathOption
     - text: "$0.35 <= p_0$"
       type: MathOption
-
-q22:
-  type: QuizQuestion
-  score: *global_score
-  horizontal_layout: yes
-  question: |
-    q22
-  question_sequel: |
-    now
-  options:
-    - correct: yes
-      text: option 22
-
-q23:
-  type: QuizQuestion
-  score: *global_score
-  horizontal_layout: yes
-  question: |
-    q23
-  question_sequel: |
-    now
-  options:
-    - correct: yes
-      text: option 23
-
-q24:
-  type: QuizQuestion
-  score: *global_score
-  horizontal_layout: yes
-  question: |
-    q24
-  question_sequel: |
-    now
-  options:
-    - correct: yes
-      text: option 24
