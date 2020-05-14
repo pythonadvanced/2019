@@ -25,6 +25,9 @@
 # 1. bonnes pratiques pour organiser votre repo git
 # 1. notebooks interactifs, pour des visualisations plus expressives
 #
+# Pour ce cours qui est au total de 3h, je vous recommande  
+# de consacrer **au maximum** de l'ordre de 30' à 45' sur le premier sujet.
+#
 # *** 
 #
 # <span style="background-color: red; padding: 10px;">
@@ -52,20 +55,15 @@
 #
 # **Consignes** :
 #
-# * pour ce cours qui est au total de 3h, je vous recommande  
-# de consacrer **au maximum** de l'ordre de 45' à 1:00 sur ce sujet ;
 # * au minimum vous devez bien entendu répondre au quiz ci-dessous;
 # * si votre **projet informatique est en Python**, il sera impératif que vous suiviez ces bonnes pratiques pour le rendu.
 
 # %% [markdown]
+#
 # ## cours sur dataviz et notebooks interactifs
 
 # %% [markdown]
-# #### révisions
-#
-# * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-c1-matplotlib-2d
-# * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-c2-matplotlib-3d
-#
+# Mêmes modalités, on va s'appuyer sur des contenus du MOOC Python3, je vous invite à étudier ces éléments :
 #
 # #### dataviz en Python
 #
@@ -77,7 +75,13 @@
 # #### exercices :
 #
 # * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-x1-taylor
-# * covid-19
+# * https://nbhosting.inria.fr/auditor/notebook/python3-s2:mooc/w7/w7-s10-x2-coronavirus
+#
+# **Consignes**
+#
+# * ici aussi naturellement vous devez répondre au quiz ci-dessous
+# * xxx à compléter
+#
 
 # %% [markdown]
 # # les quiz d'aujourd'hui
