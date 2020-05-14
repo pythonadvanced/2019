@@ -112,16 +112,8 @@
 # <span style="background-color:red; padding: 10px; margin-top: 5px;">
 # N'oubliez pas de traiter aussi au moins un des deux exercices (Taylor et coronavirus) consacrés à la deuxième partie.</span>
 
-# %%
-from nbautoeval import run_yaml_quiz
-
-# %%
-# xxx REMOVE ME
-# juste pour remettre les compteurs à zéro pendant qu'on relit
-
-from nbautoeval.storage import storage_clear
-storage_clear("repo-structure-and-dataviz")
-# xxx REMOVE ME
-
 # %% scrolled=false
+# exécuter pour voir le quiz
+
+from nbautoeval import run_yaml_quiz
 run_yaml_quiz("quiz-extra2", "quiz-all")
