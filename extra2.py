@@ -25,8 +25,7 @@
 # 1. bonnes pratiques pour organiser votre repo git
 # 1. notebooks interactifs, pour des visualisations plus expressives
 #
-# Pour ce cours qui est au total de 3h, je vous recommande  
-# de consacrer **au maximum** de l'ordre de 30' à 45' sur le premier sujet.
+# Pour ce cours qui est au total de 3h, on recommande de consacrer **au maximum** de l'ordre de 30' à 45' sur le premier sujet.
 #
 # *** 
 #
@@ -109,8 +108,10 @@
 #   il se peut que votre note soit supérieure au score final affiché, qui correspond à la dernière tentative
 
 # %% [markdown]
-# <span style="background-color:red; padding: 10px; margin-top: 5px;">
-# N'oubliez pas de traiter aussi au moins un des deux exercices (Taylor et coronavirus) consacrés à la deuxième partie.</span>
+# En plus du quiz, n'oubliez pas de 
+# <span style="background-color:red; padding: 5px 10px; display:inline-block;">
+#     traiter aussi au moins un des deux exercices (Taylor et coronavirus) consacrés à la deuxième partie</span>
+#     et d'envoyer votre ou vos notebooks à votre enseignant par mail. Voyez le fil discourse pour les détails.
 
 # %% scrolled=false
 # exécuter pour voir le quiz
